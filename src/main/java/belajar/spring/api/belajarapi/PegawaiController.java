@@ -2,6 +2,7 @@ package belajar.spring.api.belajarapi;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,5 +37,10 @@ public class PegawaiController {
     @PostMapping("/pegawai")
     public Pegawai newPegawai(@RequestBody Pegawai peg) {
         return pegawaiRepository.save(peg);
+    }
+
+    @DeleteMapping("/pegawai/{id}")
+    public void deletePegawai(@PathVariable Long id) {
+        pegawaiRepository.deleteById(id);
     }
 }
