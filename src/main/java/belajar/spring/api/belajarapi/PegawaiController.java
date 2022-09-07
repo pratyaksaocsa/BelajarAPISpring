@@ -18,10 +18,10 @@ public class PegawaiController {
         this.pegawaiRepository = repo;
     }
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     public String homepage() {
         return "Hello Spring Framework API";
-    }
+    }*/
 
     @GetMapping("/pegawai")
     public List<Pegawai> getAllPegawai() {
