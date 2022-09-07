@@ -3,6 +3,8 @@ package belajar.spring.api.belajarapi;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,5 +31,10 @@ public class PegawaiController {
         return pegawaiRepository.findById(id).orElseThrow(
             () -> new PegawaiNotFoundException(id)
         );
+    }
+
+    @PostMapping("/pegawai")
+    public Pegawai newPegawai(@RequestBody Pegawai peg) {
+        return pegawaiRepository.save(peg);
     }
 }
