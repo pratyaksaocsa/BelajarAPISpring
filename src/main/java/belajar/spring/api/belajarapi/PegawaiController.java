@@ -60,4 +60,19 @@ public class PegawaiController {
             return pegawaiRepository.save(newPegawai);
         });
     }
+
+    @GetMapping("/pegawai/nama/{nama}")
+    public List<Pegawai> findByNama(@PathVariable String nama) {
+        return pegawaiRepository.findByNama(nama);
+    }
+
+    @GetMapping("/pegawai/nama/like/{nama}")
+    public List<Pegawai> findByNamaContaining(@PathVariable String nama) {
+        return pegawaiRepository.findByNamaContaining(nama);
+    }
+
+    @GetMapping("/pegawai/both/{nama}/{jabatan}")
+    List<Pegawai> findByNamaOrJabatan(@PathVariable String nama, @PathVariable String jabatan) {
+        return pegawaiRepository.findByNamaOrJabatan(nama, jabatan);
+    }
 }
